@@ -63,7 +63,7 @@ const verifyUser = async (req, res) => {
     try {
         await dbConnect(process.env.MONGODB_URL)
         const user = await newUser.find({ password: data.token })
-        return res.status(200).json({ "message": user.length > 0 ? true : false, "data": String(user._id) })
+        return res.status(200).json({ "message": user.length > 0 ? true : false, "user": String(user[0]._id) })
     } catch (error) {
         return res.status(404).json({ "error": error, "message": false })
     }

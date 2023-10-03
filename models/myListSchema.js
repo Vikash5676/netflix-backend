@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const myListSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users'
+        ref: 'Users',
+        required: true
     },
     movie_id: {
         type: Number,
         required: true,
-        unique: true
     },
     backdrop_path: {
         type: String,

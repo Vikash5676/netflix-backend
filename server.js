@@ -4,6 +4,7 @@ const cors = require("cors")
 const port = process.env.PORT || 8080
 const connectToDb = require("./utils/db");
 const router = require("./routes/userRoute");
+const MyListrouter = require("./routes/myListRoute");
 require("dotenv").config()
 
 
@@ -14,6 +15,7 @@ app.use(cors())
 app.use(express.json());
 
 app.use("/api/user", router)
+app.use("/api/mylist", MyListrouter)
 // end
 
 // routes are here
